@@ -51,15 +51,15 @@ def sortCountry(df):
   # initializing dataframe for SEA region
   sea_region = df.iloc[348:, 0:9]
 
-  # display selected region
-  print("\n\n" + "Southeast Asia region was selected.")
+  # display region assigned by teacher
+  print("\n\n" + "Region: Southeast Asia")
 
   # displays number of countries in the region by counting the number of columns
   print("Total number of countries:", str(len(sea_region.columns) - 2))
 
   # displays countries and year range
   print("The countries in the region are shown below.")
-  print("Year range: 2007 - 2017" + "\n")
+  print("Year: 2007 - 2017" + "\n")
 
   # displays dataframe of SEA region
   print(sea_region)
@@ -72,6 +72,7 @@ def sortCountry(df):
   print(top3)
 
   return
+  
 #########################################################################
 # FUNCTION Branch: End of Code
 #########################################################################
@@ -96,7 +97,7 @@ if __name__ == '__main__':
 
   # show available regions to user
   available_Regions = ['Southeast Asia', 'Asia Pacific', 'South Asia Pacific', 'Middle East', 'Europe', 'North America', 'Australia', 'Africa']
-  print( "\n\n" + "Available regions:", available_Regions)
+  print( "\n\n" + "Regions:", available_Regions)
   # prompt user to enter a region
   region = str(input("Enter a region: "))
   print("")
@@ -162,11 +163,13 @@ if __name__ == '__main__':
         print("Invalid format.")
         break
       else:
-        # note to teacher: some values have 0 in the dataframe because they are unassigned (check the excel file and you will understand)
+        # note to teacher: some values have 0 in the dataframe because they are unassigned (na value)
         # 1978
         if year == 1978 and region == 'Southeast Asia':
           SEA_region = df.iloc[:120,:9]
-          print("Total number of countries:", str(len(SEA_region.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(SEA_region.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(SEA_region)
           i += 1
           break
@@ -175,8 +178,12 @@ if __name__ == '__main__':
           AP_region = df.iloc[:120,9:14] #dataframe2
           # combines 2 dataframe into 1 using the .join function
           result = years.join(AP_region)
+          # print region selected by user
+          print("\n" + "Region:", region)
           # print total number of countries in the chosen region
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("Total number of countries:", str(len(result.columns) - 2))
+          # print year range selected by user
+          print("Year:", year_range[0] + "\n")
           # print out result of the combination of dataframes
           print(result)
           i += 1
@@ -186,7 +193,9 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           SAP_region = df.iloc[:120,14:17]
           result = years.join(SAP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
@@ -194,7 +203,9 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           ME_region = df.iloc[:120,17:20]
           result = years.join(ME_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
@@ -202,7 +213,9 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           EU_region = df.iloc[:120,20:31]
           result = years.join(EU_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
@@ -210,7 +223,9 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           NA_region = df.iloc[:120,31:33]
           result = years.join(NA_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
@@ -218,7 +233,9 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           AUS_region = df.iloc[:120,33:35]
           result = years.join(AUS_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
@@ -226,14 +243,18 @@ if __name__ == '__main__':
           years = df.iloc[:120,:2]
           AF_region = df.iloc[:120,35:36]
           result = years.join(AF_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[0] + "\n")
           print(result)
           i += 1
           break
         # 1988
         elif year == 1988 and region == 'Southeast Asia':
           SEA_region = df.iloc[120:240,:9]
-          print("Total number of countries:", str(len(SEA_region.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(SEA_region.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(SEA_region)
           i += 1
           break
@@ -241,7 +262,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           AP_region = df.iloc[120:240,9:14]
           result = years.join(AP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -249,7 +272,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           SAP_region = df.iloc[120:240,14:17]
           result = years.join(SAP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -257,7 +282,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           ME_region = df.iloc[120:240,17:20]
           result = years.join(ME_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -265,7 +292,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           EU_region = df.iloc[120:240,20:31]
           result = years.join(EU_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -273,7 +302,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           NA_region = df.iloc[120:240,31:33]
           result = years.join(NA_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -281,7 +312,9 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           AUS_region = df.iloc[120:240,33:35]
           result = years.join(AUS_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
@@ -289,14 +322,18 @@ if __name__ == '__main__':
           years = df.iloc[120:240,:2]
           AF_region = df.iloc[120:240,35:36]
           result = years.join(AF_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[1] + "\n")
           print(result)
           i += 1
           break
         # 1998
         elif year == 1998 and region == 'Southeast Asia':
           SEA_region = df.iloc[240:360,:9]
-          print("Total number of countries:", str(len(SEA_region.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(SEA_region.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(SEA_region)
           i += 1
           break
@@ -304,7 +341,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           AP_region = df.iloc[240:360,9:14]
           result = years.join(AP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -312,7 +351,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           SAP_region = df.iloc[240:360,14:17]
           result = years.join(SAP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -320,7 +361,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           ME_region = df.iloc[240:360,17:20]
           result = years.join(ME_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -328,7 +371,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           EU_region = df.iloc[240:360,20:31]
           result = years.join(EU_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -336,7 +381,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           NA_region = df.iloc[240:360,31:33]
           result = years.join(NA_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -344,7 +391,9 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           AUS_region = df.iloc[240:360,33:35]
           result = years.join(AUS_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
@@ -352,14 +401,18 @@ if __name__ == '__main__':
           years = df.iloc[240:360,:2]
           AF_region = df.iloc[240:360,35:36]
           result = years.join(AF_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[2] + "\n")
           print(result)
           i += 1
           break
         # 2008
         elif year == 2008 and region == 'Southeast Asia':
           SEA_region = df.iloc[360:,:9]
-          print("Total number of countries:", str(len(SEA_region.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(SEA_region.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(SEA_region)
           i += 1
           break
@@ -367,7 +420,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           AP_region = df.iloc[360:,9:14]
           result = years.join(AP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -375,7 +430,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           SAP_region = df.iloc[360:,14:17]
           result = years.join(SAP_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -383,7 +440,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           ME_region = df.iloc[360:,17:20]
           result = years.join(ME_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -391,7 +450,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           EU_region = df.iloc[360:,20:31]
           result = years.join(EU_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -399,7 +460,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           NA_region = df.iloc[360:,31:33]
           result = years.join(NA_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -407,7 +470,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           AUS_region = df.iloc[360:,33:35]
           result = years.join(AUS_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
@@ -415,7 +480,9 @@ if __name__ == '__main__':
           years = df.iloc[360:,:2]
           AF_region = df.iloc[360:,35:36]
           result = years.join(AF_region)
-          print("Total number of countries:", str(len(result.columns) - 2) + "\n")
+          print("\n" + "Region:", region)
+          print("Total number of countries:", str(len(result.columns) - 2))
+          print("Year:", year_range[3] + "\n")
           print(result)
           i += 1
           break
