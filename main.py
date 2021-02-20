@@ -153,7 +153,7 @@ if __name__ == '__main__':
       try:
         year = int(year)
       except:
-        print("Invalid format.")
+        print("\nInvalid format.")
         break
       else:
         # 1978
@@ -175,7 +175,7 @@ if __name__ == '__main__':
           print("\n" + "Region:", region)
           # print total number of countries in the chosen region
           print("Total number of countries:", str(len(result.columns) - 2))
-          # print year range selected by user
+          # print period selected by user
           print("Period:", year_range[0] + "\n")
           # print out result of the combination of dataframes
           print(result)
@@ -483,7 +483,7 @@ if __name__ == '__main__':
           i += 1
           break
         else:
-          print("Error. Please ensure that you picked a valid year.")
+          print("\nError. Please ensure that you picked a valid year.")
           break
 
   # top 3 countries of user's selected region
@@ -566,7 +566,7 @@ if __name__ == '__main__':
 
     # pie chart 2
     pit.figure(2)
-    # configuration for Figure 2 (my region pie chart)
+    # configuration for Figure 2 (Southeast Asia pie chart)
     pit.pie(slices, labels=labels, colors=colors, explode=explode, startangle=90, shadow=True, autopct='%1.2f%%', pctdistance=0.8, wedgeprops={'edgecolor': 'black'})
     # show title
     pit.title("Southeast Asia (2007 - 2017)")
@@ -587,8 +587,9 @@ if __name__ == '__main__':
         # if input is equal to Y, show pie chart to user
         pit.show()
         break
-
+  
   # note: move Figure 2 to see Figure 1 in the console
+  # note to teacher: some pie charts might not work for periods between 1978 to 1995 as their values are either 0 or na (as seen on the excel sheet) 
 #########################################################################
 # Main Branch: End of Code
 #########################################################################
