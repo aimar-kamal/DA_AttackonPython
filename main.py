@@ -47,7 +47,7 @@ def sortCountry(df):
   # display number of countries in the region by counting the number of columns
   print("Total number of countries:", str(len(sea_region.columns) - 2))
 
-  # display year range
+  # display period
   print("Period: 2007 - 2017" + "\n")
 
   # display dataframe of SEA region
@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
   # error checking for year, if year is not integer, prompt invalid format. Else (if no error), print user's chosen region and year as a dataframe
   if i >= 1: # 'i' acts as a token; if value is not equal or more, program won't run this part of code
-    # year range for user to refer
+    # periods for user to refer
     year_range = ['1978 - 1987', '1988 - 1997', '1998 - 2007', '2008 - 2017']
     while True:
       # print year_range to show list of periods
