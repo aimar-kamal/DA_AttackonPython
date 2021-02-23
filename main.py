@@ -76,11 +76,11 @@ def sortCountry(df):
 if __name__ == '__main__':
   
   # Project Title
-  print("")
+  print('')
   print('######################################')
   print('# Data Analysis App - PYTHON Project #')
   print('######################################')
-  print("")
+  print('')
 
   # perform data analysis on specific excel (CSV) file
   DataAnalysis()
@@ -91,403 +91,248 @@ if __name__ == '__main__':
   # show available regions to user
   available_Regions = ['Southeast Asia', 'Asia Pacific', 'South Asia Pacific', 'Middle East', 'Europe', 'North America', 'Australia', 'Africa']
   print( "\n\n" + "Regions:", available_Regions)
-  # prompt user to enter a region
+  # prompt user to enter region
   region = str(input("Enter a region: "))
   print("")
 
   # error checking for each region, if region isdigit, prompt error. Else (if no error), initialize each of the region's respective variable with their respective dataframe
   while True:
-    # variable
+    # initialize variable
     i = 0
     # if user enter empty string, loop input until valid
     if region == "":
       # prompt user an input
       region = str(input("Please enter a region: "))
+    # if region is a digit, print invalid format
     elif region.isdigit():
       print("Invalid format.")
       break
+    # if region is not an element of the list (available_Regions), print error
+    elif not region in available_Regions:
+      print("Error. Please check for spelling errors.")
+      break
+    # if no error; valid
     else:
-      if region == 'Southeast Asia':
-        SEA_region = df.iloc[:,2:9]
-        i += 1
-        break
-      elif region == 'Asia Pacific':
-        AP_region = df.iloc[:,9:14]
-        i += 1
-        break
-      elif region == 'South Asia Pacific':
-        SAP_region = df.iloc[:,14:17]
-        i += 1
-        break
-      elif region == 'Middle East':
-        ME_region = df.iloc[:,17:20]
-        i += 1
-        break
-      elif region == 'Europe':
-        EU_region = df.iloc[:,20:31]
-        i += 1
-        break
-      elif region == 'North America':
-        NA_region = df.iloc[:,31:33]
-        i += 1
-        break
-      elif region == 'Australia':
-        AUS_region = df.iloc[:,33:35]
-        i += 1
-        break
-      elif region == 'Africa':
-        AF_region = df.iloc[:,35:36]
-        i += 1
-        break
-      else:
-        print("Error. Please check for spelling errors.")
-        break
+      i += 1
+      break
 
   # error checking for year, if year is not integer, prompt invalid format. Else (if no error), print user's chosen region and year as a dataframe
   if i >= 1: # 'i' acts as a token; if value is not equal or more, program won't run this part of code
-    # show year range for user to refer
+    # year range for user to refer
     year_range = ['1978 - 1987', '1988 - 1997', '1998 - 2007', '2008 - 2017']
     while True:
+      # print year_range to show list of periods
       print("Periods:", year_range)
+      # prompt user for year
       year = input("Enter the starting year: ")
       try:
         year = int(year)
       except:
         print("\nInvalid format.")
+        i -= 1
         break
+      # if no error; valid
       else:
         # 1978
         if year == 1978 and region == 'Southeast Asia':
-          SEA_region = df.iloc[:120,:9]
-          region_df = df.iloc[:120,2:9]
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(SEA_region.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(SEA_region)
-          i += 1
+          # populate variables with datafame
+          SEA_region = df.iloc[:120,:9] # dataframe1 (including year, month column)
+          region_df = df.iloc[:120,2:9] # dataframe2 (countries of region)
           break
         elif year == 1978 and region == 'Asia Pacific':
           years = df.iloc[:120,:2] # dataframe1 (year, month)
           region_df = df.iloc[:120,9:14] #dataframe2 (countries of region)
-          # combines 2 dataframe into 1 using the .join function
-          result = years.join(region_df)
-          # print region selected by user
-          print("\n" + "Region:", region)
-          # print total number of countries in the chosen region
-          print("Total number of countries:", str(len(result.columns) - 2))
-          # print period selected by user
-          print("Period:", year_range[0] + "\n")
-          # print out result of the combination of dataframes
-          print(result)
-          i += 1
           break
         # same process for the rest below
         elif year == 1978 and region == 'South Asia Pacific':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,14:17]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1978 and region == 'Middle East':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,17:20]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1978 and region == 'Europe':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,20:31]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1978 and region == 'North America':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,31:33]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1978 and region == 'Australia':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,33:35]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1978 and region == 'Africa':
           years = df.iloc[:120,:2]
           region_df = df.iloc[:120,35:36]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[0] + "\n")
-          print(result)
-          i += 1
           break
         # 1988
         elif year == 1988 and region == 'Southeast Asia':
           SEA_region = df.iloc[120:240,:9]
           region_df = df.iloc[120:240,2:9]
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(SEA_region.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(SEA_region)
-          i += 1
           break
         elif year == 1988 and region == 'Asia Pacific':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,9:14]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'South Asia Pacific':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,14:17]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'Middle East':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,17:20]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'Europe':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,20:31]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'North America':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,31:33]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'Australia':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,33:35]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1988 and region == 'Africa':
           years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,35:36]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[1] + "\n")
-          print(result)
-          i += 1
           break
         # 1998
         elif year == 1998 and region == 'Southeast Asia':
           SEA_region = df.iloc[240:360,:9]
           region_df = df.iloc[240:360,2:9]
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(SEA_region.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(SEA_region)
-          i += 1
           break
         elif year == 1998 and region == 'Asia Pacific':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,9:14]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'South Asia Pacific':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,14:17]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'Middle East':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,17:20]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'Europe':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,20:31]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'North America':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,31:33]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'Australia':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,33:35]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 1998 and region == 'Africa':
           years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,35:36]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[2] + "\n")
-          print(result)
-          i += 1
           break
         # 2008
         elif year == 2008 and region == 'Southeast Asia':
           SEA_region = df.iloc[360:,:9]
           region_df = df.iloc[360:,2:9]
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(SEA_region.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(SEA_region)
-          i += 1
           break
         elif year == 2008 and region == 'Asia Pacific':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,9:14]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'South Asia Pacific':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,14:17]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'Middle East':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,17:20]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'Europe':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,20:31]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'North America':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,31:33]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'Australia':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,33:35]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         elif year == 2008 and region == 'Africa':
           years = df.iloc[360:,:2]
           region_df = df.iloc[360:,35:36]
-          result = years.join(region_df)
-          print("\n" + "Region:", region)
-          print("Total number of countries:", str(len(result.columns) - 2))
-          print("Period:", year_range[3] + "\n")
-          print(result)
-          i += 1
           break
         else:
           print("\nError. Please ensure that you picked a valid year.")
+          i -= 1
           break
+        
+    i += 1
+  
+  # error checking and printing of outputs for user's region
+  if i >= 2:
+    # if region is Southeast Asia, run this part of code
+    if region == 'Southeast Asia':
+      print("\n" + "Region:", region)
+      print("Total number of countries:", str(len(SEA_region.columns) - 2))
+      if year == 1978:
+        print("Period:", year_range[0] + "\n")
+        print(SEA_region)
+        i += 1
+      elif year == 1988:
+        print("Period:", year_range[1] + "\n")
+        print(SEA_region)
+        i += 1
+      elif year == 1998:
+        print("Period:", year_range[2] + "\n")
+        print(SEA_region)
+        i += 1
+      elif year == 2008:
+        print("Period:", year_range[3] + "\n")
+        print(SEA_region)
+        i += 1
+      else:
+        print("Error.")
+    # else if region is not Southeast Asia, run this part of code
+    else:
+      if year == 1978:
+        result = years.join(region_df)
+        print("\n" + "Region:", region)
+        print("Total number of countries:", str(len(result.columns) - 2))
+        print("Period:", year_range[0] + "\n")
+        print(result)
+        i += 1
+      elif year == 1988:
+        result = years.join(region_df)
+        print("\n" + "Region:", region)
+        print("Total number of countries:", str(len(result.columns) - 2))
+        print("Period:", year_range[1] + "\n")
+        print(result)
+        i += 1
+      elif year == 1998:
+        result = years.join(region_df)
+        print("\n" + "Region:", region)
+        print("Total number of countries:", str(len(result.columns) - 2))
+        print("Period:", year_range[2] + "\n")
+        print(result)
+        i += 1
+      elif year == 2008:
+        result = years.join(region_df)
+        print("\n" + "Region:", region)
+        print("Total number of countries:", str(len(result.columns) - 2))
+        print("Period:", year_range[3] + "\n")
+        print(result)
+        i += 1
+      else:
+        print("Error.")
 
   # top 3 countries of user's selected region
-  if i >= 2:
+  if i >= 3:
     print("\n" + "The top 3 countries of visitors to Singapore over the span of 10 years:" + "\n")
     # sum up all values in descending order and take largest 3 values
     top_3 = region_df.sum(axis=0).sort_values(ascending=False).nlargest(3).reset_index()
@@ -509,7 +354,7 @@ if __name__ == '__main__':
       # if none, print error
       print("Error.")
 
-    if i >= 3:
+    if i >= 4:
       # print top 3
       print(top_3)
 
@@ -520,7 +365,7 @@ if __name__ == '__main__':
       # initialize variables and list
       visitors = []
       countries = []
-      # take values of Visitors and Country and put it in their respective list
+      # take values of Visitors and Country columns and put it in their respective list
       visitors = data['Visitors'].tolist()
       countries = data['Country'].tolist()
       i += 1
@@ -528,7 +373,7 @@ if __name__ == '__main__':
   #########################################################################
   # Pie Chart (2 pie charts shown)
   #########################################################################
-  if i >= 4:
+  if i >= 5:
     ### user input's countries and total visitors shown in pie chart (any region)###
     # slice is taken from the countries' total nf vumber oisitors
     user_slice = visitors
