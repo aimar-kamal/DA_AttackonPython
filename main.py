@@ -44,16 +44,16 @@ def sortCountry(df):
   # display region assigned by teacher
   print("Region: Southeast Asia")
 
-  # displays number of countries in the region by counting the number of columns
+  # display number of countries in the region by counting the number of columns
   print("Total number of countries:", str(len(sea_region.columns) - 2))
 
-  # displays year range
+  # display year range
   print("Period: 2007 - 2017" + "\n")
 
-  # displays dataframe of SEA region
+  # display dataframe of SEA region
   print(sea_region)
   
-  # displays top 3 countries of the region
+  # display top 3 countries of the region
   print("\n" + "The top 3 countries of visitors to Singapore over the span of 10 years:" + "\n")
   # takes the specified year range, sums up all the values vertically, sorts the value in descending order and takes the largest 3 values of the dataframe
   top3 = df.iloc[348:, 2:9].sum(axis=0).sort_values(ascending=False).nlargest(3).reset_index()
@@ -76,11 +76,9 @@ def sortCountry(df):
 if __name__ == '__main__':
   
   # Project Title
-  print('')
-  print('######################################')
+  print('\n######################################')
   print('# Data Analysis App - PYTHON Project #')
-  print('######################################')
-  print('')
+  print('######################################\n')
 
   # perform data analysis on specific excel (CSV) file
   DataAnalysis()
@@ -140,32 +138,26 @@ if __name__ == '__main__':
           region_df = df.iloc[:120,2:9] # dataframe2 (countries of region)
           break
         elif year == 1978 and region == 'Asia Pacific':
-          years = df.iloc[:120,:2] # dataframe1 (year, month)
-          region_df = df.iloc[:120,9:14] #dataframe2 (countries of region)
+          # row represents period, column represents countries
+          region_df = df.iloc[:120,9:14] #dataframe (countries of region)
           break
         # same process for the rest below
         elif year == 1978 and region == 'South Asia Pacific':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,14:17]
           break
         elif year == 1978 and region == 'Middle East':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,17:20]
           break
         elif year == 1978 and region == 'Europe':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,20:31]
           break
         elif year == 1978 and region == 'North America':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,31:33]
           break
         elif year == 1978 and region == 'Australia':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,33:35]
           break
         elif year == 1978 and region == 'Africa':
-          years = df.iloc[:120,:2]
           region_df = df.iloc[:120,35:36]
           break
         # 1988
@@ -174,31 +166,24 @@ if __name__ == '__main__':
           region_df = df.iloc[120:240,2:9]
           break
         elif year == 1988 and region == 'Asia Pacific':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,9:14]
           break
         elif year == 1988 and region == 'South Asia Pacific':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,14:17]
           break
         elif year == 1988 and region == 'Middle East':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,17:20]
           break
         elif year == 1988 and region == 'Europe':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,20:31]
           break
         elif year == 1988 and region == 'North America':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,31:33]
           break
         elif year == 1988 and region == 'Australia':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,33:35]
           break
         elif year == 1988 and region == 'Africa':
-          years = df.iloc[120:240,:2]
           region_df = df.iloc[120:240,35:36]
           break
         # 1998
@@ -207,31 +192,24 @@ if __name__ == '__main__':
           region_df = df.iloc[240:360,2:9]
           break
         elif year == 1998 and region == 'Asia Pacific':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,9:14]
           break
         elif year == 1998 and region == 'South Asia Pacific':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,14:17]
           break
         elif year == 1998 and region == 'Middle East':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,17:20]
           break
         elif year == 1998 and region == 'Europe':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,20:31]
           break
         elif year == 1998 and region == 'North America':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,31:33]
           break
         elif year == 1998 and region == 'Australia':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,33:35]
           break
         elif year == 1998 and region == 'Africa':
-          years = df.iloc[240:360,:2]
           region_df = df.iloc[240:360,35:36]
           break
         # 2008
@@ -240,31 +218,24 @@ if __name__ == '__main__':
           region_df = df.iloc[360:,2:9]
           break
         elif year == 2008 and region == 'Asia Pacific':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,9:14]
           break
         elif year == 2008 and region == 'South Asia Pacific':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,14:17]
           break
         elif year == 2008 and region == 'Middle East':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,17:20]
           break
         elif year == 2008 and region == 'Europe':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,20:31]
           break
         elif year == 2008 and region == 'North America':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,31:33]
           break
         elif year == 2008 and region == 'Australia':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,33:35]
           break
         elif year == 2008 and region == 'Africa':
-          years = df.iloc[360:,:2]
           region_df = df.iloc[360:,35:36]
           break
         else:
@@ -278,10 +249,14 @@ if __name__ == '__main__':
   if i >= 2:
     # if region is Southeast Asia, run this part of code
     if region == 'Southeast Asia':
+      # print region chosen by user
       print("\n" + "Region:", region)
+      # print total number of countries in the region by counting the number of columns in the dataframe (excluding year and month column)
       print("Total number of countries:", str(len(SEA_region.columns) - 2))
       if year == 1978:
+        # print period chosen by user
         print("Period:", year_range[0] + "\n")
+        # print dataframe
         print(SEA_region)
         i += 1
       elif year == 1988:
@@ -301,13 +276,16 @@ if __name__ == '__main__':
     # else if region is not Southeast Asia, run this part of code
     else:
       if year == 1978:
-        result = years.join(region_df)
+        years = df.iloc[:120,:2] # dataframe (including year, month column)
+        result = years.join(region_df) # combination of 2 dataframes
         print("\n" + "Region:", region)
         print("Total number of countries:", str(len(result.columns) - 2))
         print("Period:", year_range[0] + "\n")
+        # print combined dataframe
         print(result)
         i += 1
       elif year == 1988:
+        years = df.iloc[120:240,:2]
         result = years.join(region_df)
         print("\n" + "Region:", region)
         print("Total number of countries:", str(len(result.columns) - 2))
@@ -315,6 +293,7 @@ if __name__ == '__main__':
         print(result)
         i += 1
       elif year == 1998:
+        years = df.iloc[240:360,:2]
         result = years.join(region_df)
         print("\n" + "Region:", region)
         print("Total number of countries:", str(len(result.columns) - 2))
@@ -322,6 +301,7 @@ if __name__ == '__main__':
         print(result)
         i += 1
       elif year == 2008:
+        years = df.iloc[360:,:2]
         result = years.join(region_df)
         print("\n" + "Region:", region)
         print("Total number of countries:", str(len(result.columns) - 2))
@@ -392,13 +372,13 @@ if __name__ == '__main__':
     # configuration for Figure 1 (user's pie chart)
     pit.pie(user_slice, labels=label, explode=explodes, startangle=90, pctdistance=0.8, shadow=True, autopct='%1.2f%%', wedgeprops={'edgecolor': 'black'})
     if year == 1978:
-      pit.title(f"{region} ({year_range[0]})")
+      pit.title(f"{region} ({year_range[0]})") # 1978 - 1987
     elif year == 1988:
-      pit.title(f"{region} ({year_range[1]})")
+      pit.title(f"{region} ({year_range[1]})") # 1988 - 1997
     elif year == 1998:
-      pit.title(f"{region} ({year_range[2]})")
+      pit.title(f"{region} ({year_range[2]})") # 1998 - 2007
     elif year == 2008:
-      pit.title(f"{region} ({year_range[3]})")
+      pit.title(f"{region} ({year_range[3]})") # 2008 - 2017
 
     ### region assigned by teacher shown in pie chart (S.E.A region) ###
     # slices represents the number of visitors to SG in a span of 10 years from 2007 to 2017 according to their country
