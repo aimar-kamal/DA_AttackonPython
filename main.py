@@ -93,7 +93,7 @@ if __name__ == '__main__':
   region = str(input("Enter a region: "))
   print("")
 
-  # error checking for each region, if region isdigit, prompt error. Else (if no error), initialize each of the region's respective variable with their respective dataframe
+  # error checking for each region, if region is a digit, prompt error. Else (if no error), initialize each of the region's respective variable with their respective dataframe
   while True:
     # initialize variable
     i = 0
@@ -405,15 +405,15 @@ if __name__ == '__main__':
         # if input is equal to 'N', program ends
         break
       elif graph != 'Y':
-        # if input is not equal to 'Y', print invalid input
-        print("Invalid input.")
+        # if input is neither 'N' or 'Y', print invalid input
+        print("\nInvalid input.")
         break
       else:
-        # if input is equal to Y, show pie chart to user
+        # if input is equal to 'Y', show pie chart to user
         pit.show()
         break
   
-  # note: move Figure 2 to see Figure 1 in the console
+  # note: move or minimize Figure 2 to see Figure 1 in the console
   # note to teacher: some pie charts might not work for periods between 1978 to 1995 as their values are either 0 or na (as seen on the excel sheet) 
 #########################################################################
 # Main Branch: End of Code
