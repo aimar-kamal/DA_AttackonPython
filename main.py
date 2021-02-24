@@ -114,7 +114,7 @@ if __name__ == '__main__':
       i += 1
       break
 
-  # error checking for year, if year is not integer, prompt invalid format. Else (if no error), print user's chosen region and year as a dataframe
+  # error checking for year, if year is not an integer, print invalid format. Else (if no error), print dataframe of user's chosen region and year
   if i >= 1: # 'i' acts as a token; if value is not equal or more, program won't run this part of code
     # periods for user to refer
     year_range = ['1978 - 1987', '1988 - 1997', '1998 - 2007', '2008 - 2017']
@@ -355,7 +355,7 @@ if __name__ == '__main__':
   #########################################################################
   if i >= 5:
     ### user input's countries and total visitors shown in pie chart (any region)###
-    # slice is taken from the countries' total nf vumber oisitors
+    # slice is taken from the countries' total number of visitors
     user_slice = visitors
     # label is the countries of user's chosen region
     label = countries
@@ -380,7 +380,7 @@ if __name__ == '__main__':
     elif year == 2008:
       pit.title(f"{region} ({year_range[3]})") # 2008 - 2017
 
-    ### region assigned by teacher shown in pie chart (S.E.A region) ###
+    # Southeast Asia pie chart
     # slices represents the number of visitors to SG in a span of 10 years from 2007 to 2017 according to their country
     slices = [27572424, 715883, 11337420, 1042608, 6548622, 3914607, 4945136]
     # labels represents the country
